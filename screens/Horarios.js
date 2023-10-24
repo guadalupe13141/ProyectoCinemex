@@ -1,11 +1,36 @@
-import {Modal, Text, SafeAreaView,StyleSheet,TouchableOpacity,View,TextInput, Alert, Dimensions, Image} from 'react-native'
+import React, { Component } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Table, Row, Rows } from 'react-native-table-component';
 
-function Horarios(){
-    return(
-      <View style={{flex:1, alignItems: 'center', justifyContent:'center'}}>
-        <Text>Horarios</Text>
-      </View>
-    );
+export default class Horarios extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tableHead: ['Staff', 'Lunes', 'Martes', 'Miercoles','Jueves', 'Viernes'],
+      tableData: [
+        ['1', '2', '3', '4'],
+        ['a', 'b', 'c', 'd'],
+        ['1', '2', '3', '456'],
+        ['a', 'b', 'c', 'd']
+      ]
+    }
   }
 
-export default Horarios;
+  render() {
+    const state = this.state;
+    return (
+      <View style={styles.container}>
+        <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
+          <Row data={state.tableHead} style={styles.head} Style={styles.text}/>
+          <Rows data={state.tableData} textStyle={styles.text}/>
+        </Table>
+      </View>
+    )
+  }
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
+  head: { height: 40, backgroundColor: '#f1f8ff' },
+  text: { margin: 6 }
+});

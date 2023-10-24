@@ -67,7 +67,7 @@ export default function SideDrawer(){
             )
          }}/>
       <Drawer.Screen name="Cultura" component={Cultura} options={{
-            title:"Cultura",
+            title:"Cultura Cinemex",
             drawerIcon:()=>(
               < MaterialCommunityIcons name="movie-open" size={21} marginLeft={8} marginRight={-15} color="white" />
             )
